@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "db_blog",
-    "host": "127.0.0.1",
+    "username": "default",
+    "password": "dbDx3EltO8XS",
+    "database": "verceldb",
+    "host": "ep-autumn-sound-a18xb5on-pooler.ap-southeast-1.aws.neon.tech",
     "dialect": "postgres"
   },
   "test": {
