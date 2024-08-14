@@ -6,13 +6,14 @@ const config = require("./config/config.json");
 const { Sequelize, QueryTypes } = require("sequelize");
 const blogModel = require("./models").blog;
 const User = require("./models").user;
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
 const upload = require("./middlewares/uploadFile");
 
-const sequelize = new Sequelize(config.development, {
-  dialectModule: require('pg')
+const sequelize = new Sequelize({
+  ...config.development,
+  dialectModule: require("pg"),
 });
 
 // app.set = setting variable global, configuration, dll
@@ -21,7 +22,7 @@ app.set("views", path.join(__dirname, "./views"));
 
 // app.use = setting middleware
 app.use("/assets", express.static(path.join(__dirname, "./assets")));
-app.use("/uploads", express.static(path.join(__dirname, "./uploads")))
+app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 
 // body parser
 app.use(express.urlencoded({ extended: false }));
@@ -150,14 +151,14 @@ async function addBlog(req, res) {
 
   // const query = `INSERT INTO blogs(title,content,image,"createdAt","updatedAt") VALUES('${title}','${content}','https://i.pinimg.com/originals/82/d4/92/82d4926dcf09dd4c73eb1a6c0300c135.jpg', now(), now())`;
   // const data = await sequelize.query(query, { type: QueryTypes.INSERT });
-  const userId = req.session.user.id
-  const image = req.file.path
+  const userId = req.session.user.id;
+  const image = req.file.path;
 
   await blogModel.create({
     title,
     content,
     image,
-    user_id: userId
+    user_id: userId,
   });
 
   res.redirect("blog");
