@@ -3,14 +3,17 @@ const app = express();
 const port = 5000;
 const path = require("path");
 const config = require("./config/config.json");
-const { Sequelize, QueryTypes, where } = require("sequelize");
-const sequelize = new Sequelize(config.development);
+const { Sequelize, QueryTypes } = require("sequelize");
 const blogModel = require("./models").blog;
 const User = require("./models").user;
 const bcrypt = require('bcrypt');
 const session = require("express-session");
 const flash = require("express-flash");
 const upload = require("./middlewares/uploadFile");
+
+const sequelize = new Sequelize(config.development, {
+  dialectModule: require('pg')
+});
 
 // app.set = setting variable global, configuration, dll
 app.set("view engine", "hbs");
