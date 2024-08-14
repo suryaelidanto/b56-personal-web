@@ -1,23 +1,41 @@
 {
   "development": {
-    "username": "default",
-    "password": "dbDx3EltO8XS",
-    "database": "verceldb",
-    "host": "ep-autumn-sound-a18xb5on-pooler.ap-southeast-1.aws.neon.tech",
-    "dialect": "postgres"
+    "username": "mantap_owner",
+    "password": "8wWVf3vCHKGi",
+    "database": "mantap",
+    "host": "ep-late-leaf-a5qesnot.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+      }
+   }
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "mantap_owner",
+    "password": "8wWVf3vCHKGi",
+    "database": "mantap",
+    "host": "ep-late-leaf-a5qesnot.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+      }
+   }
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "mantap_owner",
+    "password": "8wWVf3vCHKGi",
+    "database": "mantap",
+    "host": "ep-late-leaf-a5qesnot.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+      }
+   }
   }
 }
