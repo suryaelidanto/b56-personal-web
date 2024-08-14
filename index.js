@@ -11,9 +11,8 @@ const session = require("express-session");
 const flash = require("express-flash");
 const upload = require("./middlewares/uploadFile");
 
-const sequelize = new Sequelize({
-  ...config.development,
-  dialectModule: require("pg"),
+const sequelize = new Sequelize("postgresql://mantap_owner:8wWVf3vCHKGi@ep-late-leaf-a5qesnot.us-east-2.aws.neon.tech/mantap?sslmode=require", {
+  dialectModule: require("pg")
 });
 
 // app.set = setting variable global, configuration, dll
