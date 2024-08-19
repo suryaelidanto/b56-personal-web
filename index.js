@@ -1,8 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5000;
 const path = require("path");
-const config = require("./config/config.json");
 const { Sequelize, QueryTypes } = require("sequelize");
 const blogModel = require("./models").blog;
 const User = require("./models").user;
@@ -10,10 +8,17 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
 const upload = require("./middlewares/uploadFile");
+const config = require("./config/config.js");
 
-const sequelize = new Sequelize("postgresql://mantap_owner:8wWVf3vCHKGi@ep-late-leaf-a5qesnot.us-east-2.aws.neon.tech/mantap?sslmode=require", {
-  dialectModule: require("pg")
-});
+require("dotenv").config();
+const port = process.env.PORT || 5000;
+
+const envConfig =
+  process.env.NODE_ENV === "production"
+    ? config.production
+    : config.development;
+
+const sequelize = new Sequelize({ ...envConfig, dialectModule: require("pg") });
 
 // app.set = setting variable global, configuration, dll
 app.set("view engine", "hbs");

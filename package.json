@@ -5,19 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "sequelize db:migrate"
+    "postinstall": "sequelize db:migrate --env production"
   },
   "author": "suryaelidanto",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-flash": "^0.0.2",
     "express-session": "^1.18.0",
     "hbs": "^4.2.0",
     "multer": "^1.4.5-lts.1",
-    "pg": "^8.11.5",
+    "pg": "^8.12.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3",
     "sequelize-auto-migrations": "^1.0.3",
